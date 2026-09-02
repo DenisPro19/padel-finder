@@ -14,8 +14,92 @@ const wide = () => window.matchMedia('(min-width:900px)').matches;
 
 const state = {
   clubs: [], selected: new Set(), results: [], meta: null,
-  view: 'byday', scanning: false, step: 0, open: new Set(),
+  view: 'byday', sort: 'time', scanning: false, step: 0, open: new Set(),
+  travel: null, travelMode: null,
 };
+
+/* ---------- travel time ---------- */
+
+const rideOf = (clubId) => state.travel?.[clubId] || null;
+
+/** "12 min · 4.1 km", or just the distance when the router was unreachable. */
+function rideLabel(clubId) {
+  const t = rideOf(clubId);
+  if (!t) return null;
+  if (t.minutes == null) return `${t.km} km away`;
+  return `${t.minutes} min drive · ${t.km} km`;
+}
+
+function useLocation() {
+  const info = $('travelInfo');
+  if (!navigator.geolocation) {
+    info.textContent = 'This browser has no location support.';
+    return;
+  }
+  info.textContent = 'Asking your browser for your location…';
+  navigator.geolocation.getCurrentPosition(async (pos) => {
+    const { latitude, longitude } = pos.coords;
+    info.textContent = 'Working out drive times…';
+    try {
+      const city = $('city').value.trim();
+      const r = await fetch(`/api/travel?lat=${latitude}&lon=${longitude}&city=${encodeURIComponent(city)}`);
+      const d = await r.json();
+      if (!r.ok) throw new Error(d.error || 'lookup failed');
+      state.travel = d.byClub;
+      state.travelMode = d.mode;
+      try {
+        sessionStorage.setItem('padel.loc', JSON.stringify({ lat: latitude, lon: longitude }));
+      } catch { /* private mode */ }
+      const n = Object.values(d.byClub).filter((v) => v.minutes != null).length;
+      info.textContent = d.note
+        ? d.note
+        : `Drive times from your location to ${n} clubs. Free-flow estimates, no live traffic.`;
+      $('clearLocation').hidden = false;
+      $('sort').querySelector('[data-v="travel"]').hidden = false;
+      renderClubs();
+      renderResults();
+    } catch (err) {
+      info.textContent = `Could not work out travel times: ${err.message}`;
+    }
+  }, (err) => {
+    const why = {
+      1: 'Permission denied — allow location for this site in your browser settings.',
+      2: 'Your position is unavailable right now.',
+      3: 'Timed out waiting for a position.',
+    }[err.code] || err.message;
+    info.textContent = why;
+  }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 600000 });
+}
+
+function clearLocation() {
+  state.travel = null;
+  state.travelMode = null;
+  try { sessionStorage.removeItem('padel.loc'); } catch { /* private mode */ }
+  $('travelInfo').textContent = '';
+  $('clearLocation').hidden = true;
+  const chip = $('sort').querySelector('[data-v="travel"]');
+  chip.hidden = true;
+  if (state.sort === 'travel') {
+    state.sort = 'time';
+    setChips($('sort'), ['time']);
+  }
+  renderClubs();
+  renderResults();
+}
+
+/** Orders a set of offers by the active sort. Ties fall back to soonest. */
+function sorted(list) {
+  const arr = list.slice();
+  if (state.sort === 'price') {
+    arr.sort((a, b) => (a.price ?? 1e9) - (b.price ?? 1e9) || a.epoch - b.epoch);
+  } else if (state.sort === 'travel') {
+    const key = (s) => rideOf(s.clubId)?.minutes ?? rideOf(s.clubId)?.km ?? 1e9;
+    arr.sort((a, b) => key(a) - key(b) || a.epoch - b.epoch);
+  } else {
+    arr.sort((a, b) => a.epoch - b.epoch || (a.price ?? 1e9) - (b.price ?? 1e9));
+  }
+  return arr;
+}
 
 /* ---------- chip groups ---------- */
 
@@ -170,8 +254,10 @@ function renderClubs() {
       cb.checked ? state.selected.add(c.tenantId) : state.selected.delete(c.tenantId);
       $('clubCount').textContent = `${state.selected.size}/${state.clubs.length}`;
     };
-    label.append(cb, el('span', null, c.name),
-      el('span', 'meta', `${c.courts}${c.indoor ? ` · ${c.indoor} in` : ''}`));
+    label.append(cb, el('span', null, c.name));
+    const ride = rideLabel(c.tenantId);
+    if (ride) label.append(el('span', 'ride', ride.replace(' drive', '')));
+    label.append(el('span', 'meta', `${c.courts}${c.indoor ? ` · ${c.indoor} in` : ''}`));
     host.append(label);
   }
 }
@@ -191,6 +277,8 @@ function offerCard(s, { showDay = false, showClub = true } = {}) {
   const when = showDay ? `${fmtDay(s.date)} · ${s.start}–${s.end} · ${s.duration}m`
                        : `${s.start}–${s.end} · ${s.duration}m`;
   info.append(el('div', 'when', when));
+  const ride = rideLabel(s.clubId);
+  if (ride) info.append(el('div', 'ride', ride));
 
   const book = el('a', 'book', 'Book');
   book.href = s.bookUrl; book.target = '_blank'; book.rel = 'noopener noreferrer';
@@ -230,7 +318,7 @@ function renderResults() {
 
   if (state.view === 'list') {
     const wrap = el('div', 'offers');
-    for (const s of results) wrap.append(offerCard(s, { showDay: true }));
+    for (const s of sorted(results)) wrap.append(offerCard(s, { showDay: true }));
     out.append(wrap);
     return;
   }
@@ -246,7 +334,7 @@ function renderResults() {
       const head = el('div', 'day-head');
       head.append(el('h3', null, name), el('span', 'n', `${slots.length} slots`));
       const list = el('div', 'offers');
-      for (const s of slots) list.append(offerCard(s, { showDay: true, showClub: false }));
+      for (const s of sorted(slots)) list.append(offerCard(s, { showDay: true, showClub: false }));
       wrap.append(head, list);
       out.append(wrap);
     }
@@ -283,7 +371,7 @@ function renderResults() {
       panel.replaceChildren();
       for (const [time, slots] of times) {
         if (!state.open.has(`${date} ${time}`)) continue;
-        for (const s of slots) panel.append(offerCard(s, { showClub: true }));
+        for (const s of sorted(slots)) panel.append(offerCard(s, { showClub: true }));
       }
     };
 
@@ -533,6 +621,15 @@ async function savePreset() {
   $('allClubs').onclick = () => { state.selected = new Set(state.clubs.map((c) => c.tenantId)); renderClubs(); };
   $('noClubs').onclick = () => { state.selected = new Set(); renderClubs(); };
   $('clubFilter').addEventListener('input', renderClubs);
+  $('useLocation').onclick = useLocation;
+  $('clearLocation').onclick = clearLocation;
+  $('sort').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    setChips($('sort'), [b.dataset.v]);
+    state.sort = b.dataset.v;
+    renderResults();
+  });
   $('savePreset').onclick = savePreset;
 
   const sheet = $('areaSheet');

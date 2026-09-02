@@ -105,6 +105,13 @@
       </div>
     </div>
     <p class="hint">Fewer clubs means a much faster search.</p>
+
+    <div class="travel">
+      <button id="useLocation" class="btn ghost" type="button">Use my location</button>
+      <button id="clearLocation" class="link" type="button" hidden>clear</button>
+      <div id="travelInfo" class="hint"></div>
+    </div>
+
     <input id="clubFilter" class="club-filter" placeholder="Filter by name" autocomplete="off">
     <div id="clubs" class="clublist"></div>
 
@@ -133,6 +140,11 @@
       <button type="button" data-v="byday" class="on">By day</button>
       <button type="button" data-v="list">All slots</button>
       <button type="button" data-v="byclub">By club</button>
+    </div>
+    <div class="chips small" id="sort">
+      <button type="button" data-v="time" class="on">Soonest</button>
+      <button type="button" data-v="travel" hidden>Nearest</button>
+      <button type="button" data-v="price">Cheapest</button>
     </div>
   </div>
   <div id="out" class="out"></div>

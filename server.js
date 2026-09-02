@@ -12,6 +12,7 @@ const { spawn } = require('child_process');
 const pt = require('./lib/playtomic');
 const store = require('./lib/store');
 const auth = require('./lib/auth');
+const travel = require('./lib/travel');
 
 const args = process.argv.slice(2);
 const argVal = (name, dflt) => {
@@ -360,6 +361,18 @@ const server = http.createServer(async (req, res) => {
         send('error', { message: err.message });
       }
       return res.end();
+    }
+
+    /* travel time from the player's location to each club in an area */
+    if (url.pathname === '/api/travel' && req.method === 'GET') {
+      const lat = Number(q.lat), lon = Number(q.lon);
+      if (!Number.isFinite(lat) || !Number.isFinite(lon) ||
+          Math.abs(lat) > 90 || Math.abs(lon) > 180) {
+        return sendJson(res, 400, { error: 'valid lat and lon are required' });
+      }
+      const clubs = store.cityClubs(store.loadCatalog(), q.city);
+      if (!clubs) return sendJson(res, 404, { error: `No club list for "${q.city}".` });
+      return sendJson(res, 200, await travel.travelTimes(lat, lon, clubs));
     }
 
     /* saved searches */

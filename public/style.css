@@ -95,6 +95,12 @@ input[type=date],input[type=time],input[type=number],input[type=text],input:not(
 .more[open] summary{color:var(--ink);margin-bottom:6px}
 
 /* ---------- clubs ---------- */
+.travel{margin:14px 0 6px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.travel .hint{width:100%;margin:0}
+.ride{color:var(--accent-dim);font-size:12.5px;margin-top:3px;font-variant-numeric:tabular-nums}
+.clublist .ride{margin:0 0 0 auto;white-space:nowrap}
+.clublist label .meta{margin-left:10px}
+
 .club-filter{margin:10px 0}
 .clublist{display:flex;flex-direction:column;gap:2px;margin-top:4px}
 .clublist label{
@@ -156,7 +162,7 @@ input[type=date],input[type=time],input[type=number],input[type=text],input:not(
 .status.err{color:var(--bad)}
 .progress{position:sticky;top:105px;z-index:20;height:2px;background:var(--line)}
 .progress>div{height:100%;width:0;background:var(--accent);transition:width .15s}
-.viewswitch{padding:12px 14px 4px}
+.viewswitch{padding:12px 14px 4px;display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between}
 .out{padding:4px 14px calc(40px + var(--safe-b))}
 
 .day{margin:18px 0 6px}

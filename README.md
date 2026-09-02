@@ -32,10 +32,23 @@ steps become a single sidebar with results beside them.
 5. **Search**. Days come back nearest-first and appear as they arrive; the button
    turns into **Stop**. In the day view each start time is a chip showing how many
    clubs have it free - tap one to open the clubs, courts and prices behind it.
-6. **Book ↗** opens that club's Playtomic page on that date. Booking still happens
+6. **Use my location** (step 4) asks the browser for your position and shows the
+   drive time and distance to every club, on both the club picker and each result.
+   A **Nearest** sort appears once it is on.
+7. **Book ↗** opens that club's Playtomic page on that date. Booking still happens
    on Playtomic, in your own account.
 
 Save any filter combination under **Saved searches** to re-run it in one click.
+
+### About the travel times
+
+Your coordinates are rounded to about 110 m and sent to the public
+[OSRM](https://project-osrm.org) demo router, which answers one origin against every
+club in a single request and needs no API key. Durations are **free-flow driving
+estimates with no live traffic**, so treat them as "roughly how far out this club is",
+not an ETA. The position is held in `sessionStorage` only and is never written to
+disk. If the router is unreachable the app shows straight-line distance and says so,
+rather than inventing a duration from an assumed speed.
 
 ## Speed and rate limits
 
