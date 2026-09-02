@@ -55,13 +55,25 @@ installed, so the https form is used instead.
 The web link keeps the `?date=` parameter, which the app link cannot carry - one more
 reason both are offered.
 
-### Courts, not open matches
+### Courts, and why open matches are only a link
 
-Everything here is **court booking** - renting a court for a slot. Playtomic's *open
-matches* (joining an existing game with a free player spot) are a separate feature:
-`app.playtomic.com` declares `/matches/*` deep links for them, and the club pages we
-read expose no match data at all, only `/api/clubs/availability`. Adding open matches
-would mean a different data source.
+Everything searchable here is **court booking** - renting a court for a slot.
+
+*Open matches* (joining an existing game with a free player spot) cannot be searched,
+because no readable source exists:
+
+- `playtomic.com` has no matches surface at all - `/matches`, `/open-matches`,
+  `/api/matches` and `/api/clubs/matches` all 404.
+- The club pages expose only `/api/clubs/availability`; their bundles contain no
+  match endpoint.
+- `app.playtomic.com` is a redirect shell whose only job is to hand off to the app.
+- `api.playtomic.io`, which the mobile app talks to, returns CloudFront 403 to
+  everything - including a real browser. `GET /api/diag` reports what this host can
+  actually reach, if you want to re-check from somewhere else.
+
+So each result carries a **Matches** link instead, deep-linking into that club's open
+matches inside the Playtomic app (`app.playtomic.com/matches?tenant_id=...`, which is
+one of the app's declared Universal Link paths).
 
 ### About the travel times
 
@@ -140,8 +152,10 @@ Two things that are easy to get wrong and are handled in `lib/playtomic.js`:
 - **A local day can span two UTC dates.** Late-night slots come back stamped with the
   previous UTC date, so they are re-bucketed by local date.
 
-`api.playtomic.io` is deliberately not used: it sits behind a WAF that rejects
-non-browser TLS fingerprints.
+`api.playtomic.io` is not used because it is not reachable: it answers CloudFront
+`403 Request blocked` to every request from here, including ones from a real Chrome
+browser, whatever the User-Agent. It is not a client-fingerprint problem that a
+different HTTP client could work around.
 
 ## Files
 

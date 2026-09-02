@@ -301,6 +301,16 @@ function offerCard(s, { showDay = false, showClub = true } = {}) {
     dir.href = maps; dir.target = '_blank'; dir.rel = 'noopener noreferrer';
     meta.append(dir);
   }
+  // Open matches exist only inside the Playtomic app - no public surface serves
+  // them - so the best available is a deep link into that club's match list.
+  if (s.matchesUrl) {
+    const m = el('a', 'sub-link', 'Matches');
+    m.href = s.matchesUrl;
+    m.title = 'Open matches at this club (opens the Playtomic app)';
+    m.target = '_blank'; m.rel = 'noopener noreferrer';
+    meta.append(m);
+  }
+
   const alt = el('a', 'sub-link', onPhone() ? 'web' : 'app');
   alt.href = onPhone() ? s.bookUrl : s.appUrl;
   alt.title = onPhone() ? 'Open on the Playtomic website instead' : 'Open in the Playtomic app';

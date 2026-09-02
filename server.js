@@ -158,6 +158,8 @@ async function runSearch(params, onProgress, onPartial, ctl) {
     // app.playtomic.com serves the AASA that playtomic.com only redirects to, and
     // /tenant/* is in it - so this opens the native app, while playtomic.com never can.
     appUrl: `https://app.playtomic.com/tenant/${club.tenantId}`,
+    // Open matches live only inside the app; this deep link opens that club's list.
+    matchesUrl: `https://app.playtomic.com/matches?tenant_id=${club.tenantId}`,
   });
 
   // One day at a time, nearest first: Playtomic's rate limiter means a full scan
@@ -364,6 +366,31 @@ const server = http.createServer(async (req, res) => {
         send('error', { message: err.message });
       }
       return res.end();
+    }
+
+    /* Upstream reachability probe. api.playtomic.io - the only host that carries
+     * open-match data - answers 403 to everything from some networks, including a
+     * real browser, so this reports what THIS host can actually reach. */
+    if (url.pathname === '/api/diag' && req.method === 'GET') {
+      const targets = [
+        'https://playtomic.com/api/clubs/availability?tenant_id=0036e518-3c6a-4d45-8c60-a54bcd2578c0&date=2026-09-05&sport_id=PADEL',
+        'https://api.playtomic.io/v1/tenants?playtomic_status=ACTIVE&sport_id=PADEL&radius=50000&coordinate=34.7071,33.0226&size=1&page=0',
+        'https://api.playtomic.io/v1/matches?sport_id=PADEL&tenant_id=0036e518-3c6a-4d45-8c60-a54bcd2578c0&size=5',
+        'https://router.project-osrm.org/table/v1/driving/33.0226,34.7071;33.0237,34.7024?sources=0',
+      ];
+      const out = await Promise.all(targets.map(async (t) => {
+        try {
+          const r = await fetch(t, {
+            headers: { 'User-Agent': 'padel-finder diagnostic' },
+            signal: AbortSignal.timeout(15000),
+          });
+          const body = (await r.text()).slice(0, 160);
+          return { url: t.split('?')[0], status: r.status, body };
+        } catch (err) {
+          return { url: t.split('?')[0], status: null, error: err.message };
+        }
+      }));
+      return sendJson(res, 200, out);
     }
 
     /* travel time from the player's location to each club in an area */
