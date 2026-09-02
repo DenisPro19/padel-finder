@@ -35,10 +35,33 @@ steps become a single sidebar with results beside them.
 6. **Use my location** (step 4) asks the browser for your position and shows the
    drive time and distance to every club, on both the club picker and each result.
    A **Nearest** sort appears once it is on.
-7. **Book ↗** opens that club's Playtomic page on that date. Booking still happens
-   on Playtomic, in your own account.
+7. **Book** opens the Playtomic **app** on a phone and the **website** on a desktop;
+   the small `app` / `web` link next to Directions gives you the other one. Booking
+   itself still happens in Playtomic, in your own account.
 
 Save any filter combination under **Saved searches** to re-run it in one click.
+
+### Why the links open the app
+
+`playtomic.com` does not serve its own `apple-app-site-association` file - it 301s to
+`app.playtomic.com`, and iOS does not follow redirects for that file. So no
+`playtomic.com/...` link can ever open the app. `app.playtomic.com` does serve the
+association, and `/tenant/*` is one of its declared paths, so
+`app.playtomic.com/tenant/<tenantId>` opens the native app when it is installed and
+falls back to Playtomic's own download page when it is not. The underlying custom
+scheme is `playtomic://tenant/<tenantId>`, but that fails silently with no app
+installed, so the https form is used instead.
+
+The web link keeps the `?date=` parameter, which the app link cannot carry - one more
+reason both are offered.
+
+### Courts, not open matches
+
+Everything here is **court booking** - renting a court for a slot. Playtomic's *open
+matches* (joining an existing game with a free player spot) are a separate feature:
+`app.playtomic.com` declares `/matches/*` deep links for them, and the club pages we
+read expose no match data at all, only `/api/clubs/availability`. Adding open matches
+would mean a different data source.
 
 ### About the travel times
 
@@ -46,7 +69,10 @@ Your coordinates are rounded to about 110 m and sent to the public
 [OSRM](https://project-osrm.org) demo router, which answers one origin against every
 club in a single request and needs no API key. Durations are **free-flow driving
 estimates with no live traffic**, so treat them as "roughly how far out this club is",
-not an ETA. The position is held in `sessionStorage` only and is never written to
+not an ETA. For a real ETA, the **Directions** link on each result opens Google Maps
+with live traffic - that is a plain maps URL and needs no API key either. Google's
+Routes / Distance Matrix *API* would give traffic-aware times inside the app, but it
+requires a Google Cloud account with billing enabled, which is why it is not used. The position is held in `sessionStorage` only and is never written to
 disk. If the router is unreachable the app shows straight-line distance and says so,
 rather than inventing a duration from an assumed speed.
 

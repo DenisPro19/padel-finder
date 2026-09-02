@@ -21,6 +21,21 @@ const state = {
 /* ---------- travel time ---------- */
 
 const rideOf = (clubId) => state.travel?.[clubId] || null;
+const clubById = (id) => state.clubs.find((c) => c.tenantId === id);
+
+/* Phones get the Playtomic app link, desktops get the website.
+ * app.playtomic.com/tenant/* is a real Universal Link (playtomic.com only redirects
+ * its association file, so links there can never open the app). Without the app
+ * installed it lands on Playtomic's own "get the app" page, so the web link stays
+ * available alongside it. */
+const onPhone = () => window.matchMedia('(hover:none) and (pointer:coarse)').matches;
+
+/** Google Maps directions - a plain URL, no API key, and it opens the Maps app. */
+function mapsUrl(clubId) {
+  const c = clubById(clubId);
+  if (!c || typeof c.lat !== 'number' || typeof c.lon !== 'number') return null;
+  return `https://www.google.com/maps/dir/?api=1&destination=${c.lat},${c.lon}&travelmode=driving`;
+}
 
 /** "12 min · 4.1 km", or just the distance when the router was unreachable. */
 function rideLabel(clubId) {
@@ -277,11 +292,25 @@ function offerCard(s, { showDay = false, showClub = true } = {}) {
   const when = showDay ? `${fmtDay(s.date)} · ${s.start}–${s.end} · ${s.duration}m`
                        : `${s.start}–${s.end} · ${s.duration}m`;
   info.append(el('div', 'when', when));
+  const meta = el('div', 'ride');
   const ride = rideLabel(s.clubId);
-  if (ride) info.append(el('div', 'ride', ride));
+  if (ride) meta.append(el('span', null, ride));
+  const maps = mapsUrl(s.clubId);
+  if (maps) {
+    const dir = el('a', 'sub-link', ride ? 'Directions' : 'Directions & live ETA');
+    dir.href = maps; dir.target = '_blank'; dir.rel = 'noopener noreferrer';
+    meta.append(dir);
+  }
+  const alt = el('a', 'sub-link', onPhone() ? 'web' : 'app');
+  alt.href = onPhone() ? s.bookUrl : s.appUrl;
+  alt.title = onPhone() ? 'Open on the Playtomic website instead' : 'Open in the Playtomic app';
+  alt.target = '_blank'; alt.rel = 'noopener noreferrer';
+  meta.append(alt);
+  info.append(meta);
 
   const book = el('a', 'book', 'Book');
-  book.href = s.bookUrl; book.target = '_blank'; book.rel = 'noopener noreferrer';
+  book.href = onPhone() ? s.appUrl : s.bookUrl;
+  book.target = '_blank'; book.rel = 'noopener noreferrer';
 
   row.append(info, el('div', 'price', money(s)), book);
   return row;

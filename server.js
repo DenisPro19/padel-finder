@@ -155,6 +155,9 @@ async function runSearch(params, onProgress, onPartial, ctl) {
     clubSlug: club.slug,
     clubCity: club.city,
     bookUrl: `${pt.BASE}/clubs/${club.slug}?date=${s.date}`,
+    // app.playtomic.com serves the AASA that playtomic.com only redirects to, and
+    // /tenant/* is in it - so this opens the native app, while playtomic.com never can.
+    appUrl: `https://app.playtomic.com/tenant/${club.tenantId}`,
   });
 
   // One day at a time, nearest first: Playtomic's rate limiter means a full scan
@@ -325,7 +328,7 @@ const server = http.createServer(async (req, res) => {
           tenantId: c.tenantId, name: c.name, slug: c.slug, city: c.city,
           courts: c.courts.length,
           indoor: c.courts.filter((x) => x.features.includes('indoor')).length,
-          timezone: c.timezone, url: c.url,
+          timezone: c.timezone, url: c.url, lat: c.lat, lon: c.lon,
         })),
       });
     }
