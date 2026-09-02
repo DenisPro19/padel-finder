@@ -2,97 +2,140 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e1512">
 <title>Padel court finder</title>
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🎾</text></svg>">
 </head>
 <body>
-<header class="topbar">
-  <div class="brand"><span class="ball"></span><h1>Padel court finder</h1></div>
-  <div class="city">
-    <label for="city">Area</label>
-    <input id="city" list="cities" placeholder="Limassol" autocomplete="off">
-    <datalist id="cities"></datalist>
-    <button id="refreshClubs" class="ghost" title="Re-scan Playtomic for clubs in this area">Rescan clubs</button>
-    <span id="catalogInfo" class="muted"></span>
-  </div>
+
+<header class="appbar">
+  <div class="brand"><span class="ball"></span><h1>Padel</h1></div>
+  <button id="areaBtn" class="area-btn" type="button">Limassol</button>
+  <a id="signout" class="signout" href="/logout" hidden>Sign out</a>
 </header>
 
-<main>
-  <aside class="filters">
-    <section>
-      <h2>When</h2>
-      <div class="row">
+<!-- Area sheet: rarely touched, so kept out of the main flow -->
+<div id="areaSheet" class="sheet" hidden>
+  <div class="sheet-body">
+    <h2>Area</h2>
+    <p class="hint">Playtomic searches by place name. Rescanning rebuilds the club list.</p>
+    <input id="city" list="cities" placeholder="Limassol" autocomplete="off" enterkeyhint="search">
+    <datalist id="cities"></datalist>
+    <div id="catalogInfo" class="hint"></div>
+    <div class="sheet-actions">
+      <button id="refreshClubs" class="btn ghost" type="button">Rescan clubs</button>
+      <button id="areaDone" class="btn" type="button">Done</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SEARCH ============ -->
+<main id="screenSearch" class="screen">
+  <nav class="stepbar" id="stepBar"></nav>
+
+  <section class="step" data-step="0">
+    <div id="presetWrap" class="presets" hidden>
+      <h2>Saved searches</h2>
+      <div id="presets" class="preset-list"></div>
+    </div>
+
+    <h2>Which days?</h2>
+    <div class="chips big" id="rangePresets">
+      <button type="button" data-days="1">Today</button>
+      <button type="button" data-days="2">Next 2 days</button>
+      <button type="button" data-days="3">Next 3 days</button>
+      <button type="button" data-days="7" class="on">Next 7 days</button>
+      <button type="button" data-days="14">Next 14 days</button>
+    </div>
+
+    <details class="more">
+      <summary>Start from a later date, or only certain weekdays</summary>
+      <div class="field-row">
         <label>From<input type="date" id="from"></label>
         <label>Days<input type="number" id="days" min="1" max="30" value="7"></label>
       </div>
       <div class="chips" id="weekdays"></div>
-    </section>
+      <p class="hint">No weekday selected means every day in the range.</p>
+    </details>
+  </section>
 
-    <section>
-      <h2>Hours</h2>
-      <div class="row">
-        <label>Earliest start<input type="time" id="start" step="1800" value="18:00"></label>
-        <label>Latest end<input type="time" id="end" step="1800" value="22:00"></label>
-      </div>
-      <div class="chips" id="timePresets">
-        <button data-s="06:00" data-e="10:00">Early</button>
-        <button data-s="12:00" data-e="15:00">Midday</button>
-        <button data-s="17:00" data-e="20:00">After work</button>
-        <button data-s="19:00" data-e="23:00">Evening</button>
-        <button data-s="00:00" data-e="23:59">Any</button>
-      </div>
-      <label class="check"><input type="checkbox" id="fit" checked>
-        <span>Whole session must fit in the window</span></label>
-    </section>
+  <section class="step" data-step="1" hidden>
+    <h2>What hours can you play?</h2>
+    <div class="chips big" id="timePresets">
+      <button type="button" data-s="06:00" data-e="10:00">Early 06–10</button>
+      <button type="button" data-s="12:00" data-e="15:00">Midday 12–15</button>
+      <button type="button" data-s="17:00" data-e="20:00">After work 17–20</button>
+      <button type="button" data-s="18:00" data-e="22:00" class="on">Evening 18–22</button>
+      <button type="button" data-s="00:00" data-e="23:59">Any time</button>
+    </div>
+    <div class="field-row">
+      <label>Earliest start<input type="time" id="start" step="1800" value="18:00"></label>
+      <label>Latest end<input type="time" id="end" step="1800" value="22:00"></label>
+    </div>
+    <label class="check"><input type="checkbox" id="fit" checked>
+      <span>Whole session must fit inside the window<em>Off means it only has to start in it</em></span></label>
+  </section>
 
-    <section>
-      <h2>Game</h2>
-      <div class="chips" id="durations">
-        <button data-v="60">60 min</button>
-        <button data-v="90" class="on">90 min</button>
-        <button data-v="120">120 min</button>
-      </div>
-      <div class="chips" id="indoor">
-        <button data-v="any" class="on">Any court</button>
-        <button data-v="indoor">Indoor</button>
-        <button data-v="outdoor">Outdoor</button>
-      </div>
-      <label class="inline">Max price
-        <input type="number" id="maxPrice" min="0" step="1" placeholder="any">
-      </label>
-    </section>
+  <section class="step" data-step="2" hidden>
+    <h2>How long?</h2>
+    <div class="chips big" id="durations">
+      <button type="button" data-v="60">60 min</button>
+      <button type="button" data-v="90" class="on">90 min</button>
+      <button type="button" data-v="120">120 min</button>
+    </div>
+    <h2>Court</h2>
+    <div class="chips big" id="indoor">
+      <button type="button" data-v="any" class="on">Any</button>
+      <button type="button" data-v="indoor">Indoor</button>
+      <button type="button" data-v="outdoor">Outdoor</button>
+    </div>
+    <h2>Price</h2>
+    <label class="inline">Max per booking
+      <input type="number" id="maxPrice" min="0" step="1" inputmode="numeric" placeholder="any"></label>
+  </section>
 
-    <section>
-      <div class="section-head">
-        <h2>Clubs <span id="clubCount" class="muted"></span></h2>
-        <div class="linkrow"><button id="allClubs" class="link">all</button><button id="noClubs" class="link">none</button></div>
-      </div>
-      <div id="clubs" class="clublist"></div>
-    </section>
-
-    <section>
-      <h2>Saved searches</h2>
-      <div id="presets" class="presets"></div>
-      <div class="row"><input id="presetName" placeholder="e.g. Evening 90s"><button id="savePreset" class="ghost">Save</button></div>
-    </section>
-  </aside>
-
-  <section class="results">
-    <div class="searchbar">
-      <button id="search" class="primary">Search</button>
-      <span id="status" class="status"></span>
-      <div class="spacer"></div>
-      <div class="chips small" id="view">
-        <button data-v="byday" class="on">By day</button>
-        <button data-v="list">Flat list</button>
-        <button data-v="byclub">By club</button>
+  <section class="step" data-step="3" hidden>
+    <div class="row-between">
+      <h2>Clubs <span id="clubCount" class="hint"></span></h2>
+      <div class="linkrow">
+        <button id="allClubs" class="link" type="button">all</button>
+        <button id="noClubs" class="link" type="button">none</button>
       </div>
     </div>
-    <div id="progress" class="progress" hidden><div id="bar"></div></div>
-    <div id="out" class="out"></div>
+    <p class="hint">Fewer clubs means a much faster search.</p>
+    <input id="clubFilter" class="club-filter" placeholder="Filter by name" autocomplete="off">
+    <div id="clubs" class="clublist"></div>
+
+    <div class="save-row">
+      <input id="presetName" placeholder="Name this search" autocomplete="off">
+      <button id="savePreset" class="btn ghost" type="button">Save</button>
+    </div>
   </section>
+
+  <div class="actionbar">
+    <button id="back" class="btn ghost" type="button" hidden>Back</button>
+    <button id="next" class="btn" type="button">Next</button>
+    <button id="search" class="btn primary" type="button">Search</button>
+  </div>
+</main>
+
+<!-- ============ RESULTS ============ -->
+<main id="screenResults" class="screen" hidden>
+  <div class="resultbar">
+    <button id="edit" class="btn ghost small" type="button">Edit search</button>
+    <span id="status" class="status"></span>
+  </div>
+  <div id="progress" class="progress" hidden><div id="bar"></div></div>
+  <div class="viewswitch">
+    <div class="chips small" id="view">
+      <button type="button" data-v="byday" class="on">By day</button>
+      <button type="button" data-v="list">All slots</button>
+      <button type="button" data-v="byclub">By club</button>
+    </div>
+  </div>
+  <div id="out" class="out"></div>
 </main>
 
 <script src="/app.js"></script>

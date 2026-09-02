@@ -14,6 +14,11 @@ It starts a local server on <http://localhost:8123> and opens your browser.
 
 Options: `--port 9000`, `--no-open`.
 
+The interface is mobile-first: a four-step search (When → Hours → Game → Clubs)
+with a sticky action bar, and results grouped day → start time → clubs so a
+thousand-slot result stays readable on a phone. On screens wider than 900px the four
+steps become a single sidebar with results beside them.
+
 ## Using it
 
 1. **Area** - `Limassol` is already indexed (26 padel clubs). Type any other place
@@ -25,7 +30,8 @@ Options: `--port 9000`, `--no-open`.
 4. **Clubs** - narrow to the ones you would actually drive to. Fewer clubs means a
    much faster search.
 5. **Search**. Days come back nearest-first and appear as they arrive; the button
-   turns into **Stop**.
+   turns into **Stop**. In the day view each start time is a chip showing how many
+   clubs have it free - tap one to open the clubs, courts and prices behind it.
 6. **Book ↗** opens that club's Playtomic page on that date. Booking still happens
    on Playtomic, in your own account.
 

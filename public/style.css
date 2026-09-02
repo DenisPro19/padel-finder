@@ -1,136 +1,233 @@
+/* Mobile-first. Wider layouts are progressive enhancement at the bottom. */
 :root{
   --bg:#0e1512; --panel:#141d19; --panel-2:#18231e; --line:#243029;
   --ink:#e8f0ea; --ink-dim:#93a89c; --ink-faint:#647268;
   --accent:#b8ff3c; --accent-ink:#0e1512; --accent-dim:#7fb62a;
   --warn:#ffb454; --bad:#ff6b6b;
-  --radius:10px;
+  --bar-h:68px;
+  --safe-b:env(safe-area-inset-bottom,0px);
 }
 *{box-sizing:border-box}
-html,body{height:100%}
+/* Layout rules below set display on these, which would otherwise beat [hidden]. */
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
 body{
-  margin:0; background:var(--bg); color:var(--ink);
-  font:14px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+  margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
   -webkit-font-smoothing:antialiased;
+  overscroll-behavior-y:none;
 }
 h1,h2{margin:0;font-weight:600}
-button{font:inherit;cursor:pointer}
+button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
 input{font:inherit}
+em{font-style:normal}
 
-/* ---------- top bar ---------- */
-.topbar{
-  display:flex;align-items:center;gap:24px;flex-wrap:wrap;
-  padding:12px 20px;border-bottom:1px solid var(--line);background:var(--panel);
+/* ---------- app bar ---------- */
+.appbar{
+  position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;
+  padding:10px 14px;background:var(--panel);border-bottom:1px solid var(--line);
 }
-.brand{display:flex;align-items:center;gap:10px}
-.brand h1{font-size:15px;letter-spacing:.2px}
-.ball{width:14px;height:14px;border-radius:50%;background:var(--accent);
-  box-shadow:inset -3px -3px 0 rgba(0,0,0,.25)}
-.city{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.city label{color:var(--ink-dim);font-size:12px;text-transform:uppercase;letter-spacing:.6px}
-.city input{
-  background:var(--panel-2);border:1px solid var(--line);color:var(--ink);
-  border-radius:8px;padding:6px 10px;width:180px;
+.brand{display:flex;align-items:center;gap:8px}
+.brand h1{font-size:16px;letter-spacing:.2px}
+.ball{width:13px;height:13px;border-radius:50%;background:var(--accent);
+  box-shadow:inset -3px -3px 0 rgba(0,0,0,.25);flex:none}
+.area-btn{
+  margin-left:auto;background:var(--panel-2);border:1px solid var(--line);color:var(--ink);
+  border-radius:999px;padding:7px 14px;font-size:13.5px;
 }
-.muted{color:var(--ink-faint);font-size:12px}
+.area-btn::after{content:" ▾";color:var(--ink-faint)}
+.signout{color:var(--ink-faint);font-size:12.5px;text-decoration:none}
+.signout:hover{color:var(--ink-dim)}
 
-/* ---------- layout ---------- */
-main{display:grid;grid-template-columns:290px 1fr;height:calc(100% - 53px)}
-.filters{
-  border-right:1px solid var(--line);background:var(--panel);
-  overflow-y:auto;padding:4px 0 40px;
-}
-.filters section{padding:16px 18px;border-bottom:1px solid var(--line)}
-.filters h2{font-size:11px;text-transform:uppercase;letter-spacing:.9px;color:var(--ink-dim);margin-bottom:10px}
-.section-head{display:flex;align-items:baseline;justify-content:space-between}
-.linkrow{display:flex;gap:8px}
-.link{background:none;border:0;color:var(--accent-dim);font-size:12px;padding:0;text-decoration:underline}
-.link:hover{color:var(--accent)}
+/* ---------- screens ---------- */
+.screen{display:flex;flex-direction:column;min-height:calc(100dvh - 54px)}
 
-.row{display:flex;gap:8px;margin-bottom:10px}
-.row label{flex:1;display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--ink-dim)}
-.row input{
-  background:var(--panel-2);border:1px solid var(--line);color:var(--ink);
-  border-radius:8px;padding:6px 8px;width:100%;color-scheme:dark;
+/* ---------- step bar ---------- */
+.stepbar{display:flex;gap:6px;padding:14px 14px 4px}
+.stepbar button{
+  flex:1;background:none;border:0;padding:0;display:flex;flex-direction:column;gap:6px;
+  color:var(--ink-faint);font-size:11px;text-align:left;letter-spacing:.3px;
 }
-.inline{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-dim);margin-top:10px}
-.inline input{width:80px;background:var(--panel-2);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:5px 8px}
-.check{display:flex;gap:8px;align-items:flex-start;margin-top:10px;font-size:12px;color:var(--ink-dim);cursor:pointer}
-.check input{margin-top:2px;accent-color:var(--accent)}
+.stepbar i{display:block;height:3px;border-radius:2px;background:var(--line)}
+.stepbar button.done i{background:var(--accent-dim)}
+.stepbar button.on i{background:var(--accent)}
+.stepbar button.on{color:var(--accent)}
 
-/* ---------- chips ---------- */
-.chips{display:flex;flex-wrap:wrap;gap:6px}
+/* ---------- steps ---------- */
+.step{padding:12px 14px calc(var(--bar-h) + var(--safe-b) + 24px);flex:1}
+.step h2{
+  font-size:12px;text-transform:uppercase;letter-spacing:.9px;color:var(--ink-dim);
+  margin:22px 0 10px;
+}
+.step h2:first-child,.presets h2{margin-top:4px}
+.hint{color:var(--ink-faint);font-size:12.5px;margin:8px 0 0}
+
+/* ---------- chips: finger-sized by default ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips button{
   background:var(--panel-2);border:1px solid var(--line);color:var(--ink-dim);
-  border-radius:999px;padding:5px 11px;font-size:12px;transition:.12s;
+  border-radius:999px;padding:10px 16px;font-size:14px;transition:.12s;
 }
-.chips button:hover{border-color:var(--accent-dim);color:var(--ink)}
+.chips.big button{min-height:46px}
+.chips button:active{transform:scale(.97)}
 .chips button.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
-.chips.small button{padding:4px 10px;font-size:11px}
+.chips.small button{padding:7px 13px;font-size:12.5px;min-height:0}
+
+/* ---------- fields ---------- */
+.field-row{display:flex;gap:10px;margin-top:12px}
+.field-row label{flex:1;display:flex;flex-direction:column;gap:5px;font-size:12px;color:var(--ink-dim)}
+input[type=date],input[type=time],input[type=number],input[type=text],input:not([type]){
+  background:var(--panel-2);border:1px solid var(--line);color:var(--ink);
+  border-radius:10px;padding:11px 12px;width:100%;color-scheme:dark;font-size:16px;
+}
+.inline{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  font-size:14px;color:var(--ink-dim)}
+.inline input{width:110px}
+.check{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:14px;color:var(--ink-dim)}
+.check input{margin-top:3px;width:20px;height:20px;accent-color:var(--accent);flex:none}
+.check em{display:block;color:var(--ink-faint);font-size:12.5px;margin-top:2px}
+.row-between{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.linkrow{display:flex;gap:12px}
+.link{background:none;border:0;color:var(--accent-dim);font-size:13px;padding:4px 0;text-decoration:underline}
+
+.more{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.more summary{color:var(--ink-dim);font-size:13px;cursor:pointer;padding:4px 0}
+.more[open] summary{color:var(--ink);margin-bottom:6px}
 
 /* ---------- clubs ---------- */
-.clublist{max-height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
+.club-filter{margin:10px 0}
+.clublist{display:flex;flex-direction:column;gap:2px;margin-top:4px}
 .clublist label{
-  display:flex;align-items:center;gap:8px;padding:5px 6px;border-radius:6px;
-  font-size:12.5px;color:var(--ink-dim);cursor:pointer;
+  display:flex;align-items:center;gap:12px;padding:11px 8px;border-radius:8px;
+  font-size:14.5px;color:var(--ink-dim);border-bottom:1px solid var(--line);
 }
-.clublist label:hover{background:var(--panel-2);color:var(--ink)}
-.clublist input{accent-color:var(--accent)}
-.clublist .meta{margin-left:auto;font-size:11px;color:var(--ink-faint);white-space:nowrap}
+.clublist label:active{background:var(--panel-2)}
+.clublist input{width:20px;height:20px;accent-color:var(--accent);flex:none}
+.clublist .meta{margin-left:auto;font-size:12px;color:var(--ink-faint);white-space:nowrap}
 
 /* ---------- presets ---------- */
-.presets{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
-.preset{display:flex;align-items:center;gap:6px}
+.preset-list{display:flex;flex-direction:column;gap:8px}
+.preset{display:flex;align-items:center;gap:8px}
 .preset button:first-child{
-  flex:1;text-align:left;background:var(--panel-2);border:1px solid var(--line);
-  color:var(--ink);border-radius:8px;padding:6px 10px;font-size:12.5px;
+  flex:1;text-align:left;background:var(--panel);border:1px solid var(--line);
+  color:var(--ink);border-radius:10px;padding:13px 14px;font-size:14.5px;font-weight:500;
 }
-.preset button:first-child:hover{border-color:var(--accent-dim)}
-.preset .del{background:none;border:0;color:var(--ink-faint);font-size:15px;padding:0 4px}
-.preset .del:hover{color:var(--bad)}
-.ghost{background:var(--panel-2);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:6px 12px;font-size:12.5px}
-.ghost:hover{border-color:var(--accent-dim)}
+.preset .sub{display:block;color:var(--ink-faint);font-size:12px;font-weight:400;margin-top:2px}
+.preset .del{background:none;border:0;color:var(--ink-faint);font-size:22px;padding:6px 10px}
+.save-row{display:flex;gap:8px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}
+.save-row input{flex:1}
+
+/* ---------- buttons ---------- */
+.btn{
+  background:var(--panel-2);border:1px solid var(--line);color:var(--ink);
+  border-radius:10px;padding:13px 20px;font-size:15px;font-weight:500;min-height:48px;
+}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.btn.ghost{background:transparent}
+.btn.small{padding:8px 14px;font-size:13px;min-height:0}
+.btn:disabled{opacity:.5}
+
+.actionbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:25;display:flex;gap:10px;
+  padding:12px 14px calc(12px + var(--safe-b));
+  background:color-mix(in srgb,var(--panel) 92%,transparent);
+  backdrop-filter:blur(12px);border-top:1px solid var(--line);
+}
+.actionbar .btn{flex:1}
+.actionbar .btn.ghost{flex:0 0 auto}
+
+/* ---------- sheet ---------- */
+.sheet{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.6);display:flex;align-items:flex-end}
+.sheet-body{
+  width:100%;background:var(--panel);border-top:1px solid var(--line);
+  border-radius:16px 16px 0 0;padding:20px 16px calc(20px + var(--safe-b));
+  display:flex;flex-direction:column;gap:10px;
+}
+.sheet h2{font-size:15px}
+.sheet-actions{display:flex;gap:10px;margin-top:6px}
+.sheet-actions .btn{flex:1}
 
 /* ---------- results ---------- */
-.results{display:flex;flex-direction:column;min-width:0;overflow:hidden}
-.searchbar{display:flex;align-items:center;gap:12px;padding:12px 20px;border-bottom:1px solid var(--line)}
-.primary{
-  background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;
-  padding:8px 20px;font-weight:600;
+.resultbar{
+  position:sticky;top:54px;z-index:20;display:flex;align-items:center;gap:12px;
+  padding:10px 14px;background:var(--bg);border-bottom:1px solid var(--line);
 }
-.primary:disabled{opacity:.5;cursor:default}
-.status{font-size:12.5px;color:var(--ink-dim)}
-.spacer{flex:1}
-.progress{height:2px;background:var(--line)}
+.status{font-size:13px;color:var(--ink-dim);flex:1;min-width:0}
+.status.err{color:var(--bad)}
+.progress{position:sticky;top:105px;z-index:20;height:2px;background:var(--line)}
 .progress>div{height:100%;width:0;background:var(--accent);transition:width .15s}
-.out{flex:1;overflow-y:auto;padding:8px 20px 60px}
+.viewswitch{padding:12px 14px 4px}
+.out{padding:4px 14px calc(40px + var(--safe-b))}
 
-.day{margin:16px 0 6px}
-.day-head{display:flex;align-items:baseline;gap:10px;position:sticky;top:0;background:var(--bg);padding:8px 0 6px;z-index:2}
-.day-head h3{margin:0;font-size:14px;font-weight:600}
-.day-head .n{font-size:12px;color:var(--ink-faint)}
-.day-head .today{background:var(--accent);color:var(--accent-ink);border-radius:4px;padding:1px 6px;font-size:10px;font-weight:700;letter-spacing:.4px}
+.day{margin:18px 0 6px}
+.day-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:10px}
+.day-head h3{margin:0;font-size:16px;font-weight:600}
+.day-head .n{font-size:12.5px;color:var(--ink-faint)}
+.day-head .today{background:var(--accent);color:var(--accent-ink);border-radius:4px;
+  padding:2px 7px;font-size:10px;font-weight:700;letter-spacing:.4px}
 
-table{width:100%;border-collapse:collapse}
-th{
-  text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.7px;
-  color:var(--ink-faint);font-weight:600;padding:6px 10px;border-bottom:1px solid var(--line);
+/* Time-first browsing: a day is a row of start times, each opening its clubs. */
+.timegrid{display:flex;flex-wrap:wrap;gap:8px}
+.timeslot{
+  background:var(--panel);border:1px solid var(--line);color:var(--ink);
+  border-radius:10px;padding:9px 13px;font-size:14.5px;font-variant-numeric:tabular-nums;
+  display:flex;flex-direction:column;gap:2px;align-items:flex-start;min-width:84px;
 }
-td{padding:7px 10px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:middle}
-tbody tr:hover{background:var(--panel)}
-.t-time{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
-.t-dur{color:var(--ink-faint);font-size:11.5px}
-.t-club{font-weight:500}
-.t-court{color:var(--ink-dim);font-size:12.5px}
-.t-price{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.tag{font-size:10px;border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--ink-faint);margin-left:6px}
+.timeslot .c{font-size:11px;color:var(--ink-faint)}
+.timeslot.on{border-color:var(--accent);background:var(--panel-2)}
+.timeslot.on .c{color:var(--accent-dim)}
+
+.offers{margin:10px 0 4px;display:flex;flex-direction:column;gap:8px}
+.offer{
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:12px 14px;display:flex;align-items:center;gap:12px;
+}
+.offer .info{flex:1;min-width:0}
+.offer .club{font-size:14.5px;font-weight:600}
+.offer .court{font-size:12.5px;color:var(--ink-dim);margin-top:2px}
+.offer .when{font-size:12.5px;color:var(--ink-faint);margin-top:3px;font-variant-numeric:tabular-nums}
+.offer .price{font-size:14.5px;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.tag{font-size:10px;border:1px solid var(--line);border-radius:4px;padding:1px 5px;
+  color:var(--ink-faint);margin-left:6px;white-space:nowrap}
 .tag.in{border-color:#2f4a5e;color:#8fc4e8}
 .book{
-  color:var(--accent-dim);text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap;
+  background:var(--accent);color:var(--accent-ink);border-radius:9px;padding:10px 14px;
+  font-size:13.5px;font-weight:600;text-decoration:none;white-space:nowrap;flex:none;
 }
-.book:hover{color:var(--accent);text-decoration:underline}
 
-.empty{padding:60px 20px;text-align:center;color:var(--ink-faint)}
-.empty strong{display:block;color:var(--ink-dim);font-size:15px;margin-bottom:6px;font-weight:600}
-.err{color:var(--bad)}
+.empty{padding:64px 20px;text-align:center;color:var(--ink-faint)}
+.empty strong{display:block;color:var(--ink-dim);font-size:16px;margin-bottom:8px;font-weight:600}
 .notice{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--warn);
-  border-radius:6px;padding:10px 12px;margin:12px 0;font-size:12.5px;color:var(--ink-dim)}
+  border-radius:8px;padding:12px 14px;margin:14px 0;font-size:13px;color:var(--ink-dim)}
+
+/* ================= wider screens ================= */
+@media (min-width:900px){
+  body{font-size:14px}
+  .screen{min-height:0}
+  .stepbar,.actionbar .btn.ghost,#next{display:none}
+
+  /* Both panes visible at once; every step is just a section of the sidebar. */
+  #screenSearch{
+    position:fixed;top:54px;left:0;bottom:0;width:330px;overflow-y:auto;
+    background:var(--panel);border-right:1px solid var(--line);
+  }
+  .step{display:block!important;padding:4px 18px 18px;border-bottom:1px solid var(--line)}
+  .step h2{font-size:11px;margin:18px 0 9px}
+  .chips button{padding:6px 12px;font-size:12.5px}
+  .chips.big button{min-height:0}
+  .clublist{max-height:280px;overflow-y:auto}
+  .clublist label{padding:6px;font-size:12.5px;border-bottom:0}
+  .clublist input,.check input{width:16px;height:16px}
+  input[type=date],input[type=time],input[type=number],input[type=text],input:not([type]){
+    padding:7px 10px;font-size:13px}
+  .btn{min-height:0;padding:9px 16px;font-size:13.5px}
+
+  .actionbar{position:sticky;bottom:0;padding:12px 18px;background:var(--panel)}
+  #screenResults{display:block!important;margin-left:330px;min-height:calc(100dvh - 54px)}
+  .resultbar{top:54px;padding:12px 22px}
+  .progress{top:107px}
+  .viewswitch{padding:12px 22px 0}
+  .out{padding:4px 22px 60px}
+  .offers{max-width:900px}
+  .offer{padding:10px 14px}
+}
