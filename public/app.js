@@ -297,7 +297,8 @@ function offerCard(s, { showDay = false, showClub = true } = {}) {
   if (ride) meta.append(el('span', null, ride));
   const maps = mapsUrl(s.clubId);
   if (maps) {
-    const dir = el('a', 'sub-link', ride ? 'Directions' : 'Directions & live ETA');
+    const dir = el('a', 'sub-link', 'Directions');
+    dir.title = 'Google Maps directions with live-traffic ETA';
     dir.href = maps; dir.target = '_blank'; dir.rel = 'noopener noreferrer';
     meta.append(dir);
   }
