@@ -1,0 +1,11 @@
+{
+  "name": "padel-finder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Find free padel courts on Playtomic by the hours you can actually play",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js --no-open"
+  },
+  "engines": { "node": ">=20" }
+}

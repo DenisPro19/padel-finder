@@ -1,0 +1,111 @@
+# Padel court finder
+
+Finds free padel courts on Playtomic **by the hours you can actually play**, across
+every club in an area at once, instead of opening each club and scrolling its day grid.
+
+## Run it
+
+```bash
+"/Users/Denis/Claude/Nux Game Project/Nux Game/padel-finder/padel"
+```
+
+It starts a local server on <http://localhost:8123> and opens your browser.
+`Ctrl-C` stops it. No dependencies, no npm install, no account or login needed.
+
+Options: `--port 9000`, `--no-open`.
+
+## Using it
+
+1. **Area** - `Limassol` is already indexed (26 padel clubs). Type any other place
+   and press **Rescan clubs** to index it; the list is cached on disk afterwards.
+2. **Hours** - set the window you can play, e.g. 18:00 to 22:00. *Whole session must
+   fit in the window* means a 90-minute game must both start and finish inside it;
+   uncheck it to match anything merely starting in the window.
+3. **Game** - duration, indoor/outdoor, price cap.
+4. **Clubs** - narrow to the ones you would actually drive to. Fewer clubs means a
+   much faster search.
+5. **Search**. Days come back nearest-first and appear as they arrive; the button
+   turns into **Stop**.
+6. **Book ↗** opens that club's Playtomic page on that date. Booking still happens
+   on Playtomic, in your own account.
+
+Save any filter combination under **Saved searches** to re-run it in one click.
+
+## Speed and rate limits
+
+Playtomic exposes availability one club-day at a time, and its CDN rate-limits bursts
+per IP. A cold 26-club × 7-day search is therefore ~180 lookups and takes 1-2 minutes;
+results stream in from about five seconds. Responses are cached for 10 minutes, so
+changing the hours or duration afterwards re-filters instantly with no new requests.
+
+If the limiter does trip, the app backs off automatically and tells you exactly how
+many club-days it could not check, so a throttled lookup is never silently shown as
+"no courts free". Searching again fills the gaps, reusing whatever is still cached.
+
+## Making it public (passphrase-protected)
+
+Set one environment variable and the app switches into public mode: it requires a
+passphrase, issues a signed session cookie valid for 30 days, and listens on all
+interfaces. Without the variable it stays local-only on `127.0.0.1` and asks for
+nothing - so an unprotected instance can never be exposed by accident.
+
+```bash
+PADEL_PASSPHRASE='something-long-and-random' node server.js
+```
+
+The passphrase is never written to disk or committed; only a SHA-256-derived key is
+held in memory. Failed logins are throttled per client (free for three tries, then a
+doubling delay up to five minutes). Changing the passphrase signs everyone out.
+
+### Deploying to Render
+
+1. Push this repo to GitHub (private is fine).
+2. Render -> **New** -> **Blueprint** -> pick the repo. `render.yaml` configures it.
+3. Set **PADEL_PASSPHRASE** in the dashboard when prompted. Do not skip this: with no
+   passphrase the app refuses to listen publicly and the health check will fail.
+4. Open the URL, enter the passphrase.
+
+Two things to expect on a free cloud tier:
+
+- **Cold starts.** The instance sleeps after ~15 minutes idle and takes ~50s to wake.
+- **Ephemeral disk.** Saved searches would reset on each restart, so the browser keeps
+  a mirror in `localStorage` and restores them automatically. The club catalog is
+  committed to the repo, so it survives regardless.
+
+**Rate limiting is the thing to watch.** Playtomic's CDN budgets requests per IP, and
+datacenter IPs tend to be treated more strictly than home ones. If searches from the
+cloud instance come back with a lot of unchecked club-days, run it from your own
+machine behind a Cloudflare Tunnel instead - same code, same passphrase, your home IP.
+
+## How it works
+
+`playtomic.com` renders its club pages server-side and serves availability from its
+own same-origin endpoint, both without authentication:
+
+| What | Request |
+|---|---|
+| Clubs in an area | `GET /search?q=<place>` -> `/clubs/<slug>` links |
+| Club details, courts, timezone | `GET /clubs/<slug>` -> tenant object in the RSC payload |
+| Free slots | `GET /api/clubs/availability?tenant_id=&date=&sport_id=PADEL` |
+
+Two things that are easy to get wrong and are handled in `lib/playtomic.js`:
+
+- **Slot times are UTC.** They are converted to each club's own timezone before any
+  filtering. Verified against club opening hours (03:00 UTC = 06:00 in Nicosia).
+- **A local day can span two UTC dates.** Late-night slots come back stamped with the
+  previous UTC date, so they are re-bucketed by local date.
+
+`api.playtomic.io` is deliberately not used: it sits behind a WAF that rejects
+non-browser TLS fingerprints.
+
+## Files
+
+```
+padel              launcher
+server.js          local HTTP server, search engine, SSE streaming
+lib/playtomic.js   Playtomic client, request pacing, timezone handling
+lib/store.js       club catalog + saved searches on disk
+public/            UI
+data/clubs.json    cached club catalog (rebuild with Rescan clubs)
+data/presets.json  saved searches
+```

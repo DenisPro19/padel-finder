@@ -1,0 +1,2143 @@
+{
+  "cities": {
+    "limassol": {
+      "query": "Limassol",
+      "builtAt": "2026-09-02T11:33:19.537Z",
+      "clubIds": [
+        "eb9264d0-f126-4fe4-9d21-19df1c871fdc",
+        "5fe26929-2385-4ddb-8ae6-9f5ae416e4ca",
+        "97937703-f095-4cd9-9a64-eae85e5ff241",
+        "0036e518-3c6a-4d45-8c60-a54bcd2578c0",
+        "34820ee8-e0c9-4393-8963-676790f10c21",
+        "51d27ca9-c204-4af6-a20b-547232e702fc",
+        "265592f4-44ef-445f-86bb-6afbf63b98cf",
+        "a74e0e03-5168-4dc0-ad0b-14b3347a6cd1",
+        "2eeceb20-2bde-47f2-92ed-0a5cb1c7c497",
+        "d3dcd59f-2dbc-44f3-85b1-2600458c6ed8",
+        "7b77492c-3e04-4fdc-bf46-b3771a8cb15f",
+        "edad3b20-1e7c-4c58-94d2-be0edbf57722",
+        "51c81e93-99b7-4042-a256-c8555a2e8bbd",
+        "9b2f47ae-aca1-4c24-a856-6bc55a0868de",
+        "b5761530-191a-44dc-9153-e281baa8b160",
+        "ec6ae713-4940-4fe2-a75d-3365d7a0440c",
+        "0d73bbac-b628-493c-b920-4388068ef861",
+        "c739a8a8-19bc-4103-b4c0-1d2d8caca199",
+        "5031c4bf-f3b9-47dc-b448-55d2e10f47bb",
+        "043c2b1d-0220-4d7e-a54c-cb0f5e9dea9f",
+        "37c8cba3-846c-425a-9f7b-5cf85865cde2",
+        "38bfeff3-cb72-4b68-af8f-cca819c18549",
+        "d7a22a50-2e9c-41b5-9da1-34067d6657d7",
+        "be04797b-14df-474e-a64e-7b4fbdb82b9b",
+        "c0333324-96df-4a68-bc96-1674fc32a6c5",
+        "a03b4d4f-71a0-47df-a5da-3df07b9c993c"
+      ]
+    }
+  },
+  "clubs": {
+    "eb9264d0-f126-4fe4-9d21-19df1c871fdc": {
+      "tenantId": "eb9264d0-f126-4fe4-9d21-19df1c871fdc",
+      "name": "Dreampadel",
+      "slug": "dreampadel",
+      "city": "Limassol",
+      "area": "Limassol",
+      "street": "Agias Sofias 50",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.6819726,
+      "lon": 33.0175801,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "TUESDAY": {
+          "opening_time": "05:00",
+          "closing_time": "01:30"
+        },
+        "FRIDAY": {
+          "opening_time": "05:00",
+          "closing_time": "01:30"
+        },
+        "MONDAY": {
+          "opening_time": "05:00",
+          "closing_time": "01:30"
+        },
+        "WEDNESDAY": {
+          "opening_time": "05:00",
+          "closing_time": "01:30"
+        },
+        "SATURDAY": {
+          "opening_time": "05:00",
+          "closing_time": "01:30"
+        },
+        "THURSDAY": {
+          "opening_time": "05:00",
+          "closing_time": "01:30"
+        },
+        "SUNDAY": {
+          "opening_time": "05:00",
+          "closing_time": "01:30"
+        }
+      },
+      "courts": [
+        {
+          "id": "353b8736-1e15-414c-abaa-e82535e8edcd",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "2d3185fb-2eef-4787-8c18-80f3d8fa5d32",
+          "name": "Padel 2",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "1809a57c-9128-41ca-b772-e7cade8801ae",
+          "name": "Padel 3",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "5e59e0fb-2e36-4bab-b8b2-da5af8fe4c9f",
+          "name": "Padel 4",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "single",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/dreampadel"
+    },
+    "5fe26929-2385-4ddb-8ae6-9f5ae416e4ca": {
+      "tenantId": "5fe26929-2385-4ddb-8ae6-9f5ae416e4ca",
+      "name": "Smash Padel and Tennis Academy",
+      "slug": "smash-padel-academy",
+      "city": "Limassol",
+      "area": "Limassol",
+      "street": "113 Road, 20, 4130, Limassol",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.70024693,
+      "lon": 32.99342464,
+      "sports": [
+        "PADEL",
+        "TENNIS"
+      ],
+      "openingHours": {
+        "FRIDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "SATURDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "WEDNESDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "SUNDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "HOLIDAYS": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "THURSDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "MONDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "TUESDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        }
+      },
+      "courts": [
+        {
+          "id": "3b2b98a8-353c-4145-9b4a-bc696f4a5b43",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "729f0f17-3fce-484d-b2b9-1103a2d8b4d1",
+          "name": "Padel 2",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "7d9214b2-67e2-4e10-aa7c-36ffe13ad2ac",
+          "name": "Padel 3",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/smash-padel-academy"
+    },
+    "97937703-f095-4cd9-9a64-eae85e5ff241": {
+      "tenantId": "97937703-f095-4cd9-9a64-eae85e5ff241",
+      "name": "St. Raphael Resort & Marina Padel",
+      "slug": "st-raphael-resort-marina-padel",
+      "city": "Limassol",
+      "area": "Dimos Lemesou",
+      "street": "Amathus Avenue 502, Pyrgos, 4534, Limassol, Cyprus",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.7127961,
+      "lon": 33.16743927,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "THURSDAY": {
+          "opening_time": "08:00",
+          "closing_time": "22:00"
+        },
+        "SUNDAY": {
+          "opening_time": "08:00",
+          "closing_time": "22:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "08:00",
+          "closing_time": "22:00"
+        },
+        "SATURDAY": {
+          "opening_time": "08:00",
+          "closing_time": "22:00"
+        },
+        "TUESDAY": {
+          "opening_time": "08:00",
+          "closing_time": "22:00"
+        },
+        "FRIDAY": {
+          "opening_time": "08:00",
+          "closing_time": "22:00"
+        },
+        "MONDAY": {
+          "opening_time": "08:00",
+          "closing_time": "22:00"
+        }
+      },
+      "courts": [
+        {
+          "id": "b532b792-86f1-42fe-8249-b64bc01af74f",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/st-raphael-resort-marina-padel"
+    },
+    "0036e518-3c6a-4d45-8c60-a54bcd2578c0": {
+      "tenantId": "0036e518-3c6a-4d45-8c60-a54bcd2578c0",
+      "name": "goAll Padel Centers Limassol",
+      "slug": "goall-padel-centers-limassol",
+      "city": "Limassol",
+      "area": "Limassol",
+      "street": "Dominitsas Lanitou Kavoudinou",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.70246932,
+      "lon": 33.02377439,
+      "sports": [
+        "PADEL",
+        "FUTSAL"
+      ],
+      "openingHours": {
+        "THURSDAY": {
+          "opening_time": "06:00",
+          "closing_time": "01:30"
+        },
+        "MONDAY": {
+          "opening_time": "06:00",
+          "closing_time": "01:30"
+        },
+        "TUESDAY": {
+          "opening_time": "06:00",
+          "closing_time": "01:30"
+        },
+        "SUNDAY": {
+          "opening_time": "06:00",
+          "closing_time": "01:30"
+        },
+        "HOLIDAYS": {
+          "opening_time": "06:00",
+          "closing_time": "01:30"
+        },
+        "SATURDAY": {
+          "opening_time": "06:00",
+          "closing_time": "01:30"
+        },
+        "WEDNESDAY": {
+          "opening_time": "06:00",
+          "closing_time": "01:30"
+        },
+        "FRIDAY": {
+          "opening_time": "06:00",
+          "closing_time": "01:30"
+        }
+      },
+      "courts": [
+        {
+          "id": "d18c3fb2-25f4-4184-ab72-4ce3671b2441",
+          "name": "Court 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "16aac374-9fdb-47d6-b97c-d4c2d06c8a0c",
+          "name": "Court 2",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "710e7ee4-0296-433f-8878-ced87bcc5705",
+          "name": "Court 3",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "2b798260-8cde-4c99-aabf-93b5638f636f",
+          "name": "Court 4",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "6dd66d1a-12b7-4df0-965d-5f3169e59955",
+          "name": "Court 5",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/goall-padel-centers-limassol"
+    },
+    "34820ee8-e0c9-4393-8963-676790f10c21": {
+      "tenantId": "34820ee8-e0c9-4393-8963-676790f10c21",
+      "name": "THE TENNIS & PADEL ACADEMY LIMASSOL",
+      "slug": "the-tennis-padel-academy-limassol",
+      "city": "Limassol",
+      "area": "Limassol",
+      "street": "1st April",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.73562724,
+      "lon": 33.00850041,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "FRIDAY": {
+          "opening_time": "05:00",
+          "closing_time": "00:00"
+        },
+        "SATURDAY": {
+          "opening_time": "05:00",
+          "closing_time": "00:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "05:00",
+          "closing_time": "00:00"
+        },
+        "SUNDAY": {
+          "opening_time": "05:00",
+          "closing_time": "00:00"
+        },
+        "THURSDAY": {
+          "opening_time": "05:00",
+          "closing_time": "00:00"
+        },
+        "MONDAY": {
+          "opening_time": "05:00",
+          "closing_time": "00:00"
+        },
+        "TUESDAY": {
+          "opening_time": "05:00",
+          "closing_time": "00:00"
+        }
+      },
+      "courts": [
+        {
+          "id": "3c413f53-a555-4b32-8249-95475d3461c8",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "e026a341-2842-422b-a31f-90c33ea1d273",
+          "name": "Padel 2",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/the-tennis-padel-academy-limassol"
+    },
+    "51d27ca9-c204-4af6-a20b-547232e702fc": {
+      "tenantId": "51d27ca9-c204-4af6-a20b-547232e702fc",
+      "name": "Padel Arena Limassol",
+      "slug": "padel-arena-limassol",
+      "city": "Agios Tychon",
+      "area": "Limassol",
+      "street": "2 Chiou,",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.70747114,
+      "lon": 33.1193828,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "THURSDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "MONDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "TUESDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "SUNDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:00"
+        },
+        "HOLIDAYS": {
+          "opening_time": "08:00",
+          "closing_time": "23:00"
+        },
+        "SATURDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "FRIDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        }
+      },
+      "courts": [
+        {
+          "id": "28a68849-ef00-4f8e-aa95-22c6d45503bf",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "wall"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/padel-arena-limassol"
+    },
+    "265592f4-44ef-445f-86bb-6afbf63b98cf": {
+      "tenantId": "265592f4-44ef-445f-86bb-6afbf63b98cf",
+      "name": "Atlantica Oasis Hotel",
+      "slug": "atlantica-oasis",
+      "city": "Limassol",
+      "area": "Limassol",
+      "street": "Stymfalidon 11, Germasoyia",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.7010614,
+      "lon": 33.0983913,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "TUESDAY": {
+          "opening_time": "10:00",
+          "closing_time": "21:30"
+        },
+        "FRIDAY": {
+          "opening_time": "10:00",
+          "closing_time": "21:30"
+        },
+        "SUNDAY": {
+          "opening_time": "10:00",
+          "closing_time": "21:30"
+        },
+        "WEDNESDAY": {
+          "opening_time": "10:00",
+          "closing_time": "21:30"
+        },
+        "THURSDAY": {
+          "opening_time": "10:00",
+          "closing_time": "21:30"
+        },
+        "MONDAY": {
+          "opening_time": "10:00",
+          "closing_time": "21:30"
+        },
+        "SATURDAY": {
+          "opening_time": "10:00",
+          "closing_time": "21:30"
+        }
+      },
+      "courts": [
+        {
+          "id": "30f0e1b0-ded5-4c81-b2b3-7e14b1ba46f4",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "wall"
+          ]
+        },
+        {
+          "id": "4b947c56-8787-4a8a-8b08-f100aabe4d50",
+          "name": "Padel 2",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "wall"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/atlantica-oasis"
+    },
+    "a74e0e03-5168-4dc0-ad0b-14b3347a6cd1": {
+      "tenantId": "a74e0e03-5168-4dc0-ad0b-14b3347a6cd1",
+      "name": "F.P. Football Park",
+      "slug": "fp-football-park",
+      "city": "Limassol",
+      "area": "Limassol",
+      "street": "Spilaion",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.68485898,
+      "lon": 33.02509629,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "MONDAY": {
+          "opening_time": "08:00",
+          "closing_time": "23:00"
+        },
+        "FRIDAY": {
+          "opening_time": "08:00",
+          "closing_time": "23:00"
+        },
+        "TUESDAY": {
+          "opening_time": "08:00",
+          "closing_time": "23:00"
+        },
+        "THURSDAY": {
+          "opening_time": "08:00",
+          "closing_time": "23:00"
+        },
+        "SUNDAY": {
+          "opening_time": "08:00",
+          "closing_time": "23:00"
+        },
+        "SATURDAY": {
+          "opening_time": "08:00",
+          "closing_time": "23:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "08:00",
+          "closing_time": "23:00"
+        }
+      },
+      "courts": [
+        {
+          "id": "ecc338c4-13e6-448e-948e-4166b147d6b6",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "crystal"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/fp-football-park"
+    },
+    "2eeceb20-2bde-47f2-92ed-0a5cb1c7c497": {
+      "tenantId": "2eeceb20-2bde-47f2-92ed-0a5cb1c7c497",
+      "name": "Padel Point Club",
+      "slug": "padel-point-club",
+      "city": "Limassol",
+      "area": "Limassol",
+      "street": "Katsandonaion, K. Polemidia ",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.6860379,
+      "lon": 33.0139479,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "MONDAY": {
+          "opening_time": "08:00",
+          "closing_time": "00:00"
+        },
+        "THURSDAY": {
+          "opening_time": "08:00",
+          "closing_time": "00:00"
+        },
+        "FRIDAY": {
+          "opening_time": "08:00",
+          "closing_time": "00:00"
+        },
+        "TUESDAY": {
+          "opening_time": "08:00",
+          "closing_time": "00:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "08:00",
+          "closing_time": "00:00"
+        },
+        "SUNDAY": {
+          "opening_time": "08:00",
+          "closing_time": "00:00"
+        },
+        "SATURDAY": {
+          "opening_time": "08:00",
+          "closing_time": "00:00"
+        }
+      },
+      "courts": [
+        {
+          "id": "086b478f-45be-4981-8e13-d91cd0d4952a",
+          "name": "Padelman 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "crystal"
+          ]
+        },
+        {
+          "id": "16e0a38d-5300-4ed3-97fb-77f70d68845d",
+          "name": "Estrella 2",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "crystal"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/padel-point-club"
+    },
+    "d3dcd59f-2dbc-44f3-85b1-2600458c6ed8": {
+      "tenantId": "d3dcd59f-2dbc-44f3-85b1-2600458c6ed8",
+      "name": "The Padel K by KOUTROUZAS",
+      "slug": "the-padel-k-by-koutrouzas",
+      "city": "Limassol",
+      "area": "Limassol",
+      "street": "Thespion 23",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.70562,
+      "lon": 33.02488,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "SUNDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:30"
+        },
+        "THURSDAY": {
+          "opening_time": "06:30",
+          "closing_time": "00:30"
+        },
+        "TUESDAY": {
+          "opening_time": "06:30",
+          "closing_time": "00:30"
+        },
+        "MONDAY": {
+          "opening_time": "06:30",
+          "closing_time": "00:30"
+        },
+        "WEDNESDAY": {
+          "opening_time": "06:30",
+          "closing_time": "00:30"
+        },
+        "SATURDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:30"
+        },
+        "FRIDAY": {
+          "opening_time": "06:30",
+          "closing_time": "00:30"
+        }
+      },
+      "courts": [
+        {
+          "id": "2a25e4a1-cd2f-4b26-9c54-a1fb2458fbc7",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "078b7356-ce82-414c-9b80-0f50b9e6795b",
+          "name": "Padel 2",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "52a8c332-9754-4002-9625-d6e2437dde1e",
+          "name": "Padel 3",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "43c64b24-5b94-41a1-9cd2-0357cb797df2",
+          "name": "Padel 4",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "94fa7475-6e26-461e-8c85-b18f98907d68",
+          "name": "Padel 5",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "95cb1420-8bfa-4b40-9eaf-3109bf36b114",
+          "name": "Padel 6",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/the-padel-k-by-koutrouzas"
+    },
+    "7b77492c-3e04-4fdc-bf46-b3771a8cb15f": {
+      "tenantId": "7b77492c-3e04-4fdc-bf46-b3771a8cb15f",
+      "name": "GN Sporting Club Alassa",
+      "slug": "gn-sporting-club-alassa",
+      "city": "Limassol",
+      "area": "Limassol",
+      "street": "34°45'56.2\"N 32°54'47.9\"E",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.76620891,
+      "lon": 32.91300925,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "FRIDAY": {
+          "opening_time": "08:00",
+          "closing_time": "00:00"
+        },
+        "SATURDAY": {
+          "opening_time": "08:00",
+          "closing_time": "00:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "08:00",
+          "closing_time": "00:00"
+        },
+        "SUNDAY": {
+          "opening_time": "08:00",
+          "closing_time": "00:00"
+        },
+        "THURSDAY": {
+          "opening_time": "08:00",
+          "closing_time": "00:00"
+        },
+        "MONDAY": {
+          "opening_time": "08:00",
+          "closing_time": "00:00"
+        },
+        "TUESDAY": {
+          "opening_time": "08:00",
+          "closing_time": "00:00"
+        }
+      },
+      "courts": [
+        {
+          "id": "f3807d20-2c0c-4448-9486-03b07b42c5d4",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "50cb8ef3-3ec0-4ce5-bbd9-d0f5ad22e3a8",
+          "name": "Padel 2",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "a199a611-9e4a-45e3-8acc-ad0a4c4fe17f",
+          "name": "Padel 3",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "77151cdd-1ef2-430e-a6b3-c0dfa9c91eee",
+          "name": "Padel 4 ",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "b541b0e7-3b3a-4bb1-b441-6eb43dea5cb4",
+          "name": "Padel 5 ",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "fc9cf865-60fe-4696-ac3f-bb0b0a1599a5",
+          "name": "Padel 6  ",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "bf0dc8a7-b4da-43a2-9a52-2524cfbbc404",
+          "name": "Padel 7  ",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "d867cd0a-dfb5-4168-9054-f4e568d2594b",
+          "name": "Private court No8 ",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "9083ad97-250c-4512-a2e8-9f7cf3f91429",
+          "name": "Private court No9  ",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/gn-sporting-club-alassa"
+    },
+    "edad3b20-1e7c-4c58-94d2-be0edbf57722": {
+      "tenantId": "edad3b20-1e7c-4c58-94d2-be0edbf57722",
+      "name": "Palm Padel ",
+      "slug": "palm-padel",
+      "city": "Limassol",
+      "area": "Dimos Lemesou",
+      "street": "Riga Fereou Moni ",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.72511708,
+      "lon": 33.19516664,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "MONDAY": {
+          "opening_time": "07:30",
+          "closing_time": "23:30"
+        },
+        "FRIDAY": {
+          "opening_time": "07:30",
+          "closing_time": "23:30"
+        },
+        "TUESDAY": {
+          "opening_time": "07:30",
+          "closing_time": "23:30"
+        },
+        "THURSDAY": {
+          "opening_time": "07:30",
+          "closing_time": "23:30"
+        },
+        "SUNDAY": {
+          "opening_time": "08:00",
+          "closing_time": "23:30"
+        },
+        "SATURDAY": {
+          "opening_time": "08:00",
+          "closing_time": "23:30"
+        },
+        "WEDNESDAY": {
+          "opening_time": "07:30",
+          "closing_time": "23:30"
+        }
+      },
+      "courts": [
+        {
+          "id": "dea4297a-5774-4433-a308-6c232b6283e9",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "0421f447-075c-4603-80cf-328e92e5ff0f",
+          "name": "Padel 2",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "18c2855f-ebb8-48ac-89fd-c24e3544a5ac",
+          "name": "Padel 3",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "d75fdbcd-f9b0-4d74-a7e1-114a6f02b236",
+          "name": "Padel 4",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/palm-padel"
+    },
+    "51c81e93-99b7-4042-a256-c8555a2e8bbd": {
+      "tenantId": "51c81e93-99b7-4042-a256-c8555a2e8bbd",
+      "name": "Padel Syndicate",
+      "slug": "padel-syndicate",
+      "city": "Limassol",
+      "area": "Limassol",
+      "street": "April 1st street 280",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.7111925,
+      "lon": 33.02459208,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "TUESDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "MONDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "SUNDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "FRIDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "THURSDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "SATURDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        }
+      },
+      "courts": [
+        {
+          "id": "1f243337-299a-47ec-b058-415724064957",
+          "name": "CRONA GROUP court",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "e93133ae-142c-41dc-807a-6e3049850ee8",
+          "name": "POWERADE court",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "198838a5-4b1d-4984-9523-bb5a331646a0",
+          "name": "ADVIVA court",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "d99c388b-d340-493c-95b1-c0f84ee0778a",
+          "name": "RANGE ROVER court",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "75c58ff0-d1a8-4a6c-a95c-6d910b8bece1",
+          "name": "MAYFLOWER court (Indoor)",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "91e67852-6c43-4fca-ad53-87e583ba38b9",
+          "name": "SIUX court (Indoor)",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/padel-syndicate"
+    },
+    "9b2f47ae-aca1-4c24-a856-6bc55a0868de": {
+      "tenantId": "9b2f47ae-aca1-4c24-a856-6bc55a0868de",
+      "name": "Padel Magic Cyprus",
+      "slug": "padel-magic-cyprus",
+      "city": "Limassol",
+      "area": "Limassol",
+      "street": "Veroias 1",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.6751755,
+      "lon": 32.9792591,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "MONDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        },
+        "THURSDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        },
+        "FRIDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        },
+        "TUESDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        },
+        "SUNDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        },
+        "SATURDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        }
+      },
+      "courts": [
+        {
+          "id": "cd15172a-f077-4911-bf9b-6ab770209789",
+          "name": "Court 1, Panorama",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "e26a817d-a2a6-448f-b8ba-2456d6337fa9",
+          "name": "Court 2, Full Panoramic",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "c05a4cae-9cfe-4eae-8f50-8ba15b97b038",
+          "name": "Court 3, Panorama",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/padel-magic-cyprus"
+    },
+    "b5761530-191a-44dc-9153-e281baa8b160": {
+      "tenantId": "b5761530-191a-44dc-9153-e281baa8b160",
+      "name": "My Q Padel Club",
+      "slug": "my-q-padel",
+      "city": "Limassol",
+      "area": "Limassol",
+      "street": "Amathountos 8 Moni ",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.72122821,
+      "lon": 33.20303566,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "FRIDAY": {
+          "opening_time": "00:00",
+          "closing_time": "23:30"
+        },
+        "MONDAY": {
+          "opening_time": "00:00",
+          "closing_time": "23:30"
+        },
+        "WEDNESDAY": {
+          "opening_time": "00:00",
+          "closing_time": "23:30"
+        },
+        "SATURDAY": {
+          "opening_time": "00:00",
+          "closing_time": "23:30"
+        },
+        "SUNDAY": {
+          "opening_time": "00:00",
+          "closing_time": "23:30"
+        },
+        "TUESDAY": {
+          "opening_time": "00:00",
+          "closing_time": "23:30"
+        },
+        "THURSDAY": {
+          "opening_time": "00:00",
+          "closing_time": "23:30"
+        }
+      },
+      "courts": [
+        {
+          "id": "14e76f36-1845-44ce-9771-4907de888969",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "crystal"
+          ]
+        },
+        {
+          "id": "6df69f8f-8115-4c7c-b8a2-63cb4633a455",
+          "name": "Padel 2",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "crystal"
+          ]
+        },
+        {
+          "id": "a139ddba-d053-44f6-b5da-29f3cbfbc551",
+          "name": "Padel 3",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "crystal"
+          ]
+        },
+        {
+          "id": "a64f747a-0898-44dd-b414-2710a2ac2430",
+          "name": "Padel 4 ",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/my-q-padel"
+    },
+    "ec6ae713-4940-4fe2-a75d-3365d7a0440c": {
+      "tenantId": "ec6ae713-4940-4fe2-a75d-3365d7a0440c",
+      "name": "Marcos Baghdatis Tennis Academy",
+      "slug": "marcos-bahgdatis-academy",
+      "city": "Limassol",
+      "area": "Dimos Lemesou",
+      "street": "Nikou Kavvadia",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.64969299,
+      "lon": 32.99338227,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "TUESDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        },
+        "FRIDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        },
+        "MONDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        },
+        "SATURDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        },
+        "THURSDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        },
+        "SUNDAY": {
+          "opening_time": "07:00",
+          "closing_time": "00:00"
+        }
+      },
+      "courts": [
+        {
+          "id": "8b06c4e1-f894-44ee-b91b-fab1233fc6e9",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "crystal"
+          ]
+        },
+        {
+          "id": "80c70926-ea15-4a18-99f6-0996c99857e2",
+          "name": "Padel 2",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "crystal"
+          ]
+        },
+        {
+          "id": "6eaea7b1-2bbd-44fc-8162-d1c0a3b4756d",
+          "name": "Padel 3",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "crystal"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/marcos-bahgdatis-academy"
+    },
+    "0d73bbac-b628-493c-b920-4388068ef861": {
+      "tenantId": "0d73bbac-b628-493c-b920-4388068ef861",
+      "name": "160 PADEL CLUB LIMASSOL",
+      "slug": "160-padel",
+      "city": "Λεμεσός",
+      "area": "Δήμος Λεμεσού",
+      "street": "despoinas kai nikou patichi 5",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.68477087,
+      "lon": 33.02741177,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "FRIDAY": {
+          "opening_time": "17:30",
+          "closing_time": "23:30"
+        },
+        "SATURDAY": {
+          "opening_time": "17:00",
+          "closing_time": "23:30"
+        },
+        "WEDNESDAY": {
+          "opening_time": "17:30",
+          "closing_time": "23:30"
+        },
+        "SUNDAY": {
+          "opening_time": "17:00",
+          "closing_time": "23:30"
+        },
+        "THURSDAY": {
+          "opening_time": "17:30",
+          "closing_time": "23:30"
+        },
+        "MONDAY": {
+          "opening_time": "17:30",
+          "closing_time": "23:30"
+        },
+        "TUESDAY": {
+          "opening_time": "17:30",
+          "closing_time": "23:30"
+        }
+      },
+      "courts": [
+        {
+          "id": "8d21ab93-8ff0-4b68-8bd4-5c66aaa3a9d8",
+          "name": "Court 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "d5e17752-68f5-4146-8119-3d5ebd0d2798",
+          "name": "Court 2",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/160-padel"
+    },
+    "c739a8a8-19bc-4103-b4c0-1d2d8caca199": {
+      "tenantId": "c739a8a8-19bc-4103-b4c0-1d2d8caca199",
+      "name": "Vyma Padel Arena",
+      "slug": "vyma-padel-arena",
+      "city": "Limassol",
+      "area": "Dimos Polemidion",
+      "street": "Evagorou 6, Kato Polemidia",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.70436,
+      "lon": 32.97859,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "FRIDAY": {
+          "opening_time": "00:00",
+          "closing_time": "00:00"
+        },
+        "MONDAY": {
+          "opening_time": "00:00",
+          "closing_time": "00:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "00:00",
+          "closing_time": "00:00"
+        },
+        "SATURDAY": {
+          "opening_time": "00:00",
+          "closing_time": "00:00"
+        },
+        "SUNDAY": {
+          "opening_time": "00:00",
+          "closing_time": "00:00"
+        },
+        "TUESDAY": {
+          "opening_time": "00:00",
+          "closing_time": "00:00"
+        },
+        "THURSDAY": {
+          "opening_time": "00:00",
+          "closing_time": "00:00"
+        }
+      },
+      "courts": [
+        {
+          "id": "ed092680-9b85-4520-a9ea-d4406e5bf12e",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "00075177-9daa-454b-9eec-e020ad139df5",
+          "name": "Padel 2",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "53df8518-1b7b-412d-9d91-62d2a96e0ec2",
+          "name": "Padel 3",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/vyma-padel-arena"
+    },
+    "5031c4bf-f3b9-47dc-b448-55d2e10f47bb": {
+      "tenantId": "5031c4bf-f3b9-47dc-b448-55d2e10f47bb",
+      "name": "SQEasy Club",
+      "slug": "sqeasy-club",
+      "city": "Limassol",
+      "area": "",
+      "street": "B1 old road, Monagroulli ",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.73331672,
+      "lon": 33.22705867,
+      "sports": [
+        "PADEL",
+        "SQUASH"
+      ],
+      "openingHours": {
+        "THURSDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:00"
+        },
+        "SUNDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:00"
+        },
+        "SATURDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:00"
+        },
+        "TUESDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:00"
+        },
+        "FRIDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:00"
+        },
+        "MONDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:00"
+        }
+      },
+      "courts": [
+        {
+          "id": "9b91f832-bc0e-4a25-969a-39a08544d9f1",
+          "name": "Padel",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/sqeasy-club"
+    },
+    "043c2b1d-0220-4d7e-a54c-cb0f5e9dea9f": {
+      "tenantId": "043c2b1d-0220-4d7e-a54c-cb0f5e9dea9f",
+      "name": "Columbia Beach Resort ",
+      "slug": "columbia-beach-resort",
+      "city": "Pissouri",
+      "area": "Limassol",
+      "street": "Pissouri Bay ",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.64962333,
+      "lon": 32.72028706,
+      "sports": [
+        "PADEL",
+        "TENNIS",
+        "SQUASH",
+        "TABLE_TENNIS"
+      ],
+      "openingHours": {
+        "TUESDAY": {
+          "opening_time": "08:00",
+          "closing_time": "21:00"
+        },
+        "FRIDAY": {
+          "opening_time": "08:00",
+          "closing_time": "21:00"
+        },
+        "MONDAY": {
+          "opening_time": "08:00",
+          "closing_time": "21:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "08:00",
+          "closing_time": "21:00"
+        },
+        "SATURDAY": {
+          "opening_time": "08:00",
+          "closing_time": "21:00"
+        },
+        "THURSDAY": {
+          "opening_time": "08:00",
+          "closing_time": "21:00"
+        },
+        "SUNDAY": {
+          "opening_time": "08:00",
+          "closing_time": "21:00"
+        }
+      },
+      "courts": [
+        {
+          "id": "a7a5c49a-ad7e-491b-8546-d60a7ea165db",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/columbia-beach-resort"
+    },
+    "37c8cba3-846c-425a-9f7b-5cf85865cde2": {
+      "tenantId": "37c8cba3-846c-425a-9f7b-5cf85865cde2",
+      "name": "MY Q PADEL CLUB VIP ",
+      "slug": "my-q-club-vip",
+      "city": "Moni",
+      "area": "Limassol",
+      "street": "Amathountos 12, 4525 Moni",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.7390692,
+      "lon": 33.2012827,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "FRIDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "MONDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "SATURDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "SUNDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "TUESDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "THURSDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        }
+      },
+      "courts": [
+        {
+          "id": "9307ab32-a067-4907-9fe9-c5201b25b73d",
+          "name": "Padel 5 VIP - Fully air-conditioned ",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "4e9c78a7-3372-463f-be09-b5d473a4d201",
+          "name": "Padel 6 VIP - Fully air-conditioned",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/my-q-club-vip"
+    },
+    "38bfeff3-cb72-4b68-af8f-cca819c18549": {
+      "tenantId": "38bfeff3-cb72-4b68-af8f-cca819c18549",
+      "name": "SP ATHLETICO ",
+      "slug": "sp-athletico",
+      "city": "Paramytha",
+      "area": "Limassol",
+      "street": "QX2C+MH7, Paramytha 4540, Cyprus",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.7516625,
+      "lon": 32.9714219,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "FRIDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "SATURDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "SUNDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "THURSDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "MONDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "TUESDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        }
+      },
+      "courts": [
+        {
+          "id": "ad0bc864-1635-4e81-a70a-e060246742a1",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/sp-athletico"
+    },
+    "d7a22a50-2e9c-41b5-9da1-34067d6657d7": {
+      "tenantId": "d7a22a50-2e9c-41b5-9da1-34067d6657d7",
+      "name": "NAIS Sports Club",
+      "slug": "nais-sports-club",
+      "city": "Germasogeia",
+      "area": "Limassol",
+      "street": "Agias Paraskevis 12",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.7093124,
+      "lon": 33.087556,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "FRIDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "SATURDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "SUNDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "THURSDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "MONDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        },
+        "TUESDAY": {
+          "opening_time": "06:00",
+          "closing_time": "00:00"
+        }
+      },
+      "courts": [
+        {
+          "id": "07598438-0700-4776-946e-b13d3de1785a",
+          "name": "Panoramic 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "4094d686-61e7-4cb0-8342-d0b3e614c762",
+          "name": "Panoramic 2 (GOLD court)",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "745293d6-4473-4bd1-a065-1df2886ef7b8",
+          "name": "Panoramic 3",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "b565fde9-5eb1-4dbf-80e7-2e7b521ea1f5",
+          "name": "Indoor A",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "a7a83d9c-9529-4b92-85ee-e7ad1320b076",
+          "name": "Indoor B",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "bcde0838-9ff6-4c22-9d97-d1fc0f9b1d4a",
+          "name": "Indoor C",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "1e94badf-bf31-46c9-9cad-87459864fb17",
+          "name": "Indoor D",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "b107ea6a-f755-4a4c-878c-dbc91736b7e2",
+          "name": "Single A (1v1)",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "single",
+            "panoramic"
+          ]
+        },
+        {
+          "id": "c7a30cf2-bb06-4478-80c7-b64773c640d0",
+          "name": "Single B (1v1)",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "single",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/nais-sports-club"
+    },
+    "be04797b-14df-474e-a64e-7b4fbdb82b9b": {
+      "tenantId": "be04797b-14df-474e-a64e-7b4fbdb82b9b",
+      "name": "Parklane Resort & Spa Padel ",
+      "slug": "parklane-resort-spa-padel",
+      "city": "Pyrgos",
+      "area": "Limassol",
+      "street": "Yianni Kranidioti 11, Pyrgos, ",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.7137206,
+      "lon": 33.1745756,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "TUESDAY": {
+          "opening_time": "08:00",
+          "closing_time": "21:00"
+        },
+        "FRIDAY": {
+          "opening_time": "08:00",
+          "closing_time": "21:00"
+        },
+        "SUNDAY": {
+          "opening_time": "08:00",
+          "closing_time": "21:00"
+        },
+        "WEDNESDAY": {
+          "opening_time": "08:00",
+          "closing_time": "21:00"
+        },
+        "THURSDAY": {
+          "opening_time": "08:00",
+          "closing_time": "21:00"
+        },
+        "MONDAY": {
+          "opening_time": "08:00",
+          "closing_time": "21:00"
+        },
+        "SATURDAY": {
+          "opening_time": "08:00",
+          "closing_time": "21:00"
+        }
+      },
+      "courts": [
+        {
+          "id": "c5231884-d5b8-439c-be9f-73203f528a40",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "panoramic"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/parklane-resort-spa-padel"
+    },
+    "c0333324-96df-4a68-bc96-1674fc32a6c5": {
+      "tenantId": "c0333324-96df-4a68-bc96-1674fc32a6c5",
+      "name": "Green Padel Club",
+      "slug": "green-padel-club-cyprus2",
+      "city": "Germasogeia",
+      "area": "Limassol",
+      "street": "Potamias Street 157",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.73761,
+      "lon": 33.08489,
+      "sports": [
+        "PADEL"
+      ],
+      "openingHours": {
+        "MONDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "THURSDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "FRIDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "TUESDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "WEDNESDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "SUNDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        },
+        "SATURDAY": {
+          "opening_time": "07:00",
+          "closing_time": "23:30"
+        }
+      },
+      "courts": [
+        {
+          "id": "f63e1896-ae31-4193-a473-9f1c4cada5d2",
+          "name": "paytech Court",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "crystal"
+          ]
+        },
+        {
+          "id": "0cd0684a-bd3d-4fd5-b405-3e6a8e1fcc85",
+          "name": "LG Court",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "crystal"
+          ]
+        },
+        {
+          "id": "76f91b71-43e2-4d0f-be99-78a628751f62",
+          "name": "RealDeal Center Court",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "crystal"
+          ]
+        },
+        {
+          "id": "4cfcac6c-f2ef-4735-a459-c56ca1dddde7",
+          "name": "Eurobank Court",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "crystal"
+          ]
+        },
+        {
+          "id": "238d273a-7741-457e-9c27-2c960064fbdc",
+          "name": "Powerade Court",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "double",
+            "crystal"
+          ]
+        },
+        {
+          "id": "ce751b95-a8ee-4a54-a2e9-e8c658d390c6",
+          "name": "Movato Court (Single)",
+          "sport": "PADEL",
+          "features": [
+            "indoor",
+            "single",
+            "crystal"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/green-padel-club-cyprus2"
+    },
+    "a03b4d4f-71a0-47df-a5da-3df07b9c993c": {
+      "tenantId": "a03b4d4f-71a0-47df-a5da-3df07b9c993c",
+      "name": "Heritage Sports",
+      "slug": "heritage-sports",
+      "city": "Palodia",
+      "area": "Limassol",
+      "street": "Kountouros 1 Street",
+      "country": "CY",
+      "timezone": "Asia/Nicosia",
+      "lat": 34.7387597,
+      "lon": 32.9884799,
+      "sports": [
+        "PADEL",
+        "TENNIS",
+        "FOOTBALL_OTHERS",
+        "BASKETBALL"
+      ],
+      "openingHours": {
+        "TUESDAY": {
+          "opening_time": "07:30",
+          "closing_time": "23:30"
+        },
+        "FRIDAY": {
+          "opening_time": "07:30",
+          "closing_time": "23:30"
+        },
+        "WEDNESDAY": {
+          "opening_time": "07:30",
+          "closing_time": "23:30"
+        },
+        "THURSDAY": {
+          "opening_time": "07:30",
+          "closing_time": "23:30"
+        },
+        "MONDAY": {
+          "opening_time": "07:30",
+          "closing_time": "23:30"
+        },
+        "SATURDAY": {
+          "opening_time": "08:30",
+          "closing_time": "15:30"
+        }
+      },
+      "courts": [
+        {
+          "id": "e9f2a04b-5aa2-4877-bd3f-6f23d008f14d",
+          "name": "Padel 1",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "crystal"
+          ]
+        },
+        {
+          "id": "083ae816-03d4-450e-850c-a2a2a7a96702",
+          "name": "Padel 2",
+          "sport": "PADEL",
+          "features": [
+            "outdoor",
+            "double",
+            "crystal"
+          ]
+        }
+      ],
+      "url": "https://playtomic.com/clubs/heritage-sports"
+    }
+  }
+}

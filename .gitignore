@@ -1,0 +1,7 @@
+node_modules/
+.env
+*.log
+.DS_Store
+
+# Saved searches are per-instance state, not source.
+data/presets.json

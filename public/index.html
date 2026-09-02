@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Padel court finder</title>
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🎾</text></svg>">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="ball"></span><h1>Padel court finder</h1></div>
+  <div class="city">
+    <label for="city">Area</label>
+    <input id="city" list="cities" placeholder="Limassol" autocomplete="off">
+    <datalist id="cities"></datalist>
+    <button id="refreshClubs" class="ghost" title="Re-scan Playtomic for clubs in this area">Rescan clubs</button>
+    <span id="catalogInfo" class="muted"></span>
+  </div>
+</header>
+
+<main>
+  <aside class="filters">
+    <section>
+      <h2>When</h2>
+      <div class="row">
+        <label>From<input type="date" id="from"></label>
+        <label>Days<input type="number" id="days" min="1" max="30" value="7"></label>
+      </div>
+      <div class="chips" id="weekdays"></div>
+    </section>
+
+    <section>
+      <h2>Hours</h2>
+      <div class="row">
+        <label>Earliest start<input type="time" id="start" step="1800" value="18:00"></label>
+        <label>Latest end<input type="time" id="end" step="1800" value="22:00"></label>
+      </div>
+      <div class="chips" id="timePresets">
+        <button data-s="06:00" data-e="10:00">Early</button>
+        <button data-s="12:00" data-e="15:00">Midday</button>
+        <button data-s="17:00" data-e="20:00">After work</button>
+        <button data-s="19:00" data-e="23:00">Evening</button>
+        <button data-s="00:00" data-e="23:59">Any</button>
+      </div>
+      <label class="check"><input type="checkbox" id="fit" checked>
+        <span>Whole session must fit in the window</span></label>
+    </section>
+
+    <section>
+      <h2>Game</h2>
+      <div class="chips" id="durations">
+        <button data-v="60">60 min</button>
+        <button data-v="90" class="on">90 min</button>
+        <button data-v="120">120 min</button>
+      </div>
+      <div class="chips" id="indoor">
+        <button data-v="any" class="on">Any court</button>
+        <button data-v="indoor">Indoor</button>
+        <button data-v="outdoor">Outdoor</button>
+      </div>
+      <label class="inline">Max price
+        <input type="number" id="maxPrice" min="0" step="1" placeholder="any">
+      </label>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Clubs <span id="clubCount" class="muted"></span></h2>
+        <div class="linkrow"><button id="allClubs" class="link">all</button><button id="noClubs" class="link">none</button></div>
+      </div>
+      <div id="clubs" class="clublist"></div>
+    </section>
+
+    <section>
+      <h2>Saved searches</h2>
+      <div id="presets" class="presets"></div>
+      <div class="row"><input id="presetName" placeholder="e.g. Evening 90s"><button id="savePreset" class="ghost">Save</button></div>
+    </section>
+  </aside>
+
+  <section class="results">
+    <div class="searchbar">
+      <button id="search" class="primary">Search</button>
+      <span id="status" class="status"></span>
+      <div class="spacer"></div>
+      <div class="chips small" id="view">
+        <button data-v="byday" class="on">By day</button>
+        <button data-v="list">Flat list</button>
+        <button data-v="byclub">By club</button>
+      </div>
+    </div>
+    <div id="progress" class="progress" hidden><div id="bar"></div></div>
+    <div id="out" class="out"></div>
+  </section>
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>

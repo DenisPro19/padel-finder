@@ -1,0 +1,13 @@
+# Render Blueprint. Import the repo at https://render.com -> New -> Blueprint.
+services:
+  - type: web
+    name: padel-finder
+    runtime: node
+    plan: free
+    buildCommand: "true"        # no dependencies to install
+    startCommand: node server.js --no-open
+    healthCheckPath: /login
+    envVars:
+      # Set the value in Render's dashboard; sync:false keeps it out of the repo.
+      - key: PADEL_PASSPHRASE
+        sync: false

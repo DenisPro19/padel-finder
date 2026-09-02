@@ -1,0 +1,4 @@
+#!/bin/bash
+# Launches the padel court finder and opens it in your browser.
+cd "$(dirname "$0")" || exit 1
+exec node server.js "$@"
